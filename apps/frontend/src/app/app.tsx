@@ -8,6 +8,7 @@ export function App() {
 
   const frontendVariable: FrontendType = {
     value: 'this is a frontend variable',
+    value2: 'this is the value 2',
   };
 
   console.log({ commonVariable, frontendVariable });
