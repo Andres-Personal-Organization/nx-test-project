@@ -24,5 +24,9 @@ jobs:
           cache: 'npm'
 
       - run: npm i
+      - uses: nrwl/nx-set-shas@v3
+      # This line is needed for nx affected to work when CI is running on a PR
+      - run: git branch --track main origin/main
+        if: ${{ github.event_name == 'pull_request' }}
       - run: npm add --global nx@latest
-      - run: nx affected -t build
+      - run: nx affected -t lint test build --parallel=3
