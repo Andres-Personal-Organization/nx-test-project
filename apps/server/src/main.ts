@@ -28,6 +28,7 @@ async function bootstrap() {
     value: 'this is a backend variable',
   };
 
+  console.log('doing minor change');
   console.log({ commonVariable, backendVariable });
 }
 
