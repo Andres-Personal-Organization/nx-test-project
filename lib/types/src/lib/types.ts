@@ -8,6 +8,7 @@ export interface CommonTypes {
 
 export interface FrontendType {
   value: string;
+  value2: string;
 }
 
 export interface BackendType {
