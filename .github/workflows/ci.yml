@@ -23,5 +23,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: npm i
-      # - run: npm add --global nx@latest
+      - run: npm add --global nx@latest
       - run: nx build frontend
