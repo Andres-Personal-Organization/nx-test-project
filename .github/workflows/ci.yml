@@ -22,6 +22,22 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+
+      - name: Restore cached npm dependencies
+        uses: actions/cache/restore@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache/Cypress # needed for the Cypress binary
+          key: npm-dependencies-${{ hashFiles('package-lock.yaml') }}
+      - run: pnpm install --frozen-lockfile
+      - name: Cache npm dependencies
+        uses: actions/cache/save@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache/Cypress # needed for the Cypress binary
+          key: npm-dependencies-${{ hashFiles('package-lock.yaml') }}
       - run: npm i
       - run: npm add --global nx@latest
       - run: nx build frontend
