@@ -25,4 +25,4 @@ jobs:
 
       - run: npm i
       - run: npm add --global nx@latest
-      - run: nx run-many -t build
+      - run: nx affected -t build
