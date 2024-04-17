@@ -11,6 +11,8 @@ export function App() {
     value2: 'this is the value 2',
   };
 
+  console.log('minor change to the frontend');
+
   console.log({ commonVariable, frontendVariable });
   return (
     <div>
